@@ -1,0 +1,29 @@
+
+HTML  => JSX
+
+class => className
+
+for   => htmlFor
+
+
+syntax:
+JSX:
+    class App extends Component {    
+        render() {        
+            return (            
+                <form action="/process" method="post">                
+                    <div class="form-group">                    
+                        <label htmlFor="email">Email:</label>                    
+                        <input type="text" id="email" name="username" class="form-control" />                
+                    <div>            
+                </form>        
+            );    
+        }
+    }
+HTML:
+    <form action="/process" method="post">    
+        <div class="form-group">        
+            <label for="email">Email:</label>        
+            <input type="text" id="email" name="username" class="form-control" />    
+        <div>
+    </form>
