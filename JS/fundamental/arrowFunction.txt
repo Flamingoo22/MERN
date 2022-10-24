@@ -41,3 +41,7 @@ const returnObjLonghand = () => {
 const returnObj = () => { firstName: 'John', lastName: 'Wick' }
 // surrounding the implicit return with parenthesis solves the problem
 const returnObjFixed = () => ({ firstName: 'John', lastName: 'Wick' });
+
+
+
+git rm -r --cached;

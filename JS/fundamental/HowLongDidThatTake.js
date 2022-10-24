@@ -1,5 +1,5 @@
 Number.prototype.isPrime = function() {
-    for( let i=2 ; i*i < this; i++ ) {
+    for( let i=2 ; i <= Math.sqrt(this); i++ ) {
         if( this % i === 0) {
             return false;
         }
@@ -7,30 +7,68 @@ Number.prototype.isPrime = function() {
     return true;
 }
 
-Number.prototype.isPrime = function(){
-    let array = [2];
-    for( let i = 0; i < array.length; i++){
-        if(this %array[i] === 0){
-            array.push(this.Number);
-            return false;
-        }
-    }
-    return true
-}
+// Number.prototype.isPrime = function(){
+//     let array = [2];
+//     for( let i = 0; i < array.length; i++){
+//         if(this %array[i] === 0){
+//             array.push(this.Number);
+//             return false;
+//         }
+//     }
+//     return true
+// }
 
 
 const { performance } = require('perf_hooks');
 const start = performance.now();
-let primeCount = -1;
-let num = 2; // for math reasons, 1 is considered prime
-while( primeCount < 1e4 ) {
-    if( num.isPrime() ) {
-        primeCount++;
+// let primeCount = 0;
+// let num = 2; // for math reasons, 1 is considered prime
+// while( primeCount < 1e4 ) {
+//     if( num.isPrime() ) {
+//         primeCount++;
+//     }
+//     num++;
+// }
+
+// console.log(`The 10,000th prime number is ${num-1}`);
+// console.log(`This took ${performance.now() - start} milliseconds to run`);
+
+//recursive
+// function rFib( n ) {
+//     if ( n < 2 ) {
+//         return n;
+//     }
+//     return rFib( n-1 ) + rFib( n-2 );
+// }
+// rFib(20);
+// console.log(`This took ${performance.now() - start} milliseconds to run`);
+// // iterative
+// function iFib( n ) {
+//     const vals = [ 0, 1 ];
+//     while(vals.length-1 < n) {
+//             let len = vals.length;
+//             vals.push( vals[len-1] + vals[len-2] );
+//         }
+//         return vals[n];
+//     }
+// iFib(20);
+// console.log(`This took ${performance.now() - start} milliseconds to run`);
+//iterative runs faters than recursive, recursive took ~1.1798 ms; iterative runs 0.0366;
+//call stacks takes up spaces === space complexity increase;
+
+const story = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident culpa nihil repellat nulla laboriosam maxime, quia aliquam ipsam reprehenderit delectus reiciendis molestias assumenda aut fugit tempore laudantium tempora aspernatur? Repellendus consequatur expedita doloribus soluta cupiditate quae fugit! Aliquid, repellat animi, illum molestias maiores, laboriosam vero impedit iusto mollitia optio labore asperiores!";
+// const reversed1 = story.split("").reverse().join("");
+                    //     O(N)      O(~N/2)   O(N)
+//console.log(reversed1);
+const reverse = (string) =>{
+    let string2;
+    //middle out approach;
+    for(i = string.length-1; i > 0; i--){
+        string2 += string[i];
     }
-    num++;
+    return string2;
 }
+const reversed2 = reverse(story);
 
-
-
-console.log(`The 10,000th prime number is ${num-1}`);
+//console.log(reversed2)
 console.log(`This took ${performance.now() - start} milliseconds to run`);
