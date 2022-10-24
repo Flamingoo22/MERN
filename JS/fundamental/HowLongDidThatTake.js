@@ -7,16 +7,16 @@ Number.prototype.isPrime = function() {
     return true;
 }
 
-// Number.prototype.isPrime = function(){
-//     let array = [2];
-//     for( let i = 0; i < array.length; i++){
-//         if(this %array[i] === 0){
-//             array.push(this.Number);
-//             return false;
-//         }
-//     }
-//     return true
-// }
+Number.prototype.isPrime = function(){
+    let array = [2];
+    for( let i = 0; i < array.length; i++){
+        if(this %array[i] === 0){
+            array.push(this.Number);
+            return false;
+        }
+    }
+    return true
+}
 
 
 const { performance } = require('perf_hooks');
@@ -29,6 +29,8 @@ while( primeCount < 1e4 ) {
     }
     num++;
 }
+
+
 
 console.log(`The 10,000th prime number is ${num-1}`);
 console.log(`This took ${performance.now() - start} milliseconds to run`);
