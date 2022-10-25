@@ -26,9 +26,14 @@ class Effect{
     }
 
     play(target){
-        console.log(`User used <${this.name}> on <${target.name}>, and ${target.name}'s ${this.stat} increased by ${this.magnitude}`);
-        this.stat === "power" ? target.power += this.magnitude : target.resilience+= this.magnitude;
-        return target;
+        if( target instanceof Unit){
+            console.log(`User used <${this.name}> on <${target.name}>, and ${target.name}'s ${this.stat} increased by ${this.magnitude}`);
+            this.stat === "power" ? target.power += this.magnitude : target.resilience+= this.magnitude;
+            return target;
+        }
+        else {
+            throw new Error("Target must be a unit");
+        }
     }
 }
 

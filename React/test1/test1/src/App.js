@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+
+import MyNewComponent from './components/MyNewComponent';
 
 function App() {
   return (
       <>
+      <MyNewComponent someText={'Hello World'}/>
       <h1>Hello Dojo!</h1>
       <h2>Things I need to do:</h2>
       <ul>
