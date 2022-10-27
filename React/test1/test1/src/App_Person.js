@@ -1,5 +1,6 @@
 import React from 'react'
 import Person from './components/Person'
+import FunctionalComponent from './components/FunctionalComponent'
 import OtherComponent from './components/OtherComponent'
 
 function App_Person(){
@@ -13,6 +14,7 @@ function App_Person(){
     return (
     <fieldset>
         <legend>App_Person.js</legend>
+        <FunctionalComponent person={person} num={10}/>
         <Person person={person}/>
         <OtherComponent alice={10} />
     </fieldset>
