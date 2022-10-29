@@ -1,0 +1,79 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  
+}
+
+:root{
+  --clr: #222327;
+}
+
+body
+{
+  background-color: var(--clr);
+}
+
+.pokeDex{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5%;
+}
+
+.pokemonTag{
+  width:25%;
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.pokemonTag:hover{
+  transition: 0.5s;
+  transform:scale(1.5);
+  border: 3px solid black;
+  margin: -20px;
+}
+
+.pokemonTag:hover img{
+  position: absolute;
+  transition: 2s;
+  transform:scale(4);
+  animation-name: wiggle, enlarge;
+  animation-duration: 2.5s;
+  animation-iteration-count: 2;
+}
+
+@keyframes enlarge {
+  100%{
+    transform: scale(3);
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);transform:scale(2)
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%{
+    transform: rotateZ(0);
+  }
+}

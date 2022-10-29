@@ -19,3 +19,5 @@ const noMondays = new Promise( (resolve, reject) => {
 noMondays
     .then( res => console.log(res) )
     .catch( err => console.log(err) );
+
+
