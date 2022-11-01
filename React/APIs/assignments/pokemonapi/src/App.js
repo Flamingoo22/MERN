@@ -7,7 +7,7 @@ const API_URL = 'https://pokeapi.co/api/v2/pokemon?limit=898&offset=0';  //pokem
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
-  const [ show, setShow ] = useState(false)  //testing state
+  const [ show, setShow ] = useState(false)  //testing state   //decrease the load time but decrease the efficiency
   // const [search, setSearch] = useState('');
 
   // const searchPokemon = async(pokemon)=>{
@@ -58,7 +58,7 @@ function App() {
       const frontShiny = data.sprites.front_shiny;
       const backShiny = data.sprites.back_shiny;
       // const timer = setTimeout(() =>{
-        if(e.target.src === frontDefault){
+      if(e.target.src === frontDefault){
         e.target.src = backDefault;
       }
       else if(e.target.src === backDefault ){
@@ -74,9 +74,9 @@ function App() {
       // return ()=>clearTimeout(timer)
   }
 
-  const catchEmAll =()=>{
-    setShow(!show);
-  }
+  // const catchEmAll =()=>{
+  //   setShow(!show);
+  // }
 
   // useEffect(()=>{
   //   searchPokemon()
