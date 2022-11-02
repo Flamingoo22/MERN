@@ -1,0 +1,52 @@
+SQL             Mongo
+Schema          Database(db)
+Tables          Collections
+Row/ Record     Objects
+
+show dbs //return all the dbs
+
+use db_name.dropDatabase() //remove database called db_name
+db  //show the current database
+db.dropDatabase() //remove the current db
+show collections // return all collections inside the current database
+
+use users_db // create new db called users_db
+
+db.createCollection('Collection_Name')  //create new collection called Collection_Name
+
+db.create
+
+db.Collection_Name.insert({ data })
+
+db.Collection_Name.find() //return everything inside the Collections
+db.Collection_Name.find({ data }) //return that particular data_info
+db.Collection_Name.find().pretty()  //return display in rows
+
+db.Collection_Name.remove({ data })  //remove every objects that contains 'data'
+db.Collection_Name.remove({ data }, true)   //remove the first object that contains 'data' 
+
+db.Collection_Name.update({ old_data }, {new_data})  //update whole entire object 'old_data' into 'new_data'
+db.Collection_Name.update({ old_data }, {$set: { data }}) //patch the particular part that matches the key or create new attr inside the object if key is not found.
+
+
+
+$gt         (greater than)	                    Use to query selectively on numerical-valued fields
+$gte        (greater than or equal to)	        Use to query selectively on numerical-valued fields
+$lt         (less than)	                        Use to query selectively on numerical-valued fields
+$lte        (less than or equal to)	            Use to query selectively on numerical-valued fields
+$in         (in array)	                        Use to find documents who have a particular value within an array.
+
+
+db.Collection_Name.find({'key_Name': {operator: value}})
+
+db.Collection_Name.update({ data }, {$push: { array_name: 'new_attr' }}) //add element 'new_attr' to an array 'array_name' in an object contains {data} in collection 'Collection_Name'
+
+$push	                Push to an array contained within a document.
+$pop	                Removes either the first or last element from an array. EX:
+                                db.COLLECTION.update({QUERY}, {$pop: {array_key: (1 or -1)}})
+                                    Use 1 for the last item in the array, -1 for the first item.
+
+$addToSet	            It functions just like $push.  However, $addToSet only adds to the specified array if the value doesn't already exist (thereby preventing duplicate entries).
+$pull	                Removes a specified value from an array, unlike $pop, which removes by location. Ex:
+                                db.COLLECTION.update({QUERY}, {$pull: {array_key: VALUE}})
+                        This will remove all instances of VALUE from the documents with the array specified by the array_key that match QUERY.

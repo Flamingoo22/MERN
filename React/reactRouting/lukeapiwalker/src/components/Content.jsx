@@ -15,6 +15,7 @@ const Content = (props) => {
     const url = API_URL + type + '/' + id;    //
 
     const SearchApiData = async() =>{
+        setApiData([])
         try {
             const res = await axios.get(url)
             // const keys = (Object.keys(res.data))      //built in methods to return keys
@@ -55,16 +56,17 @@ const Content = (props) => {
         //</div>
         // above is the first attempt, works but the following display only the data that we want to show;
         <div>
-            {ApiData?
+            {Object.keys(ApiData).length > 0?
                 <>
                     <h1>{ApiData['name']}</h1>
                     {typeMap[type].map((value, index) =>{
                         return <p key={index}>{titlize(value)}: {ApiData[value]}</p>
                     })}
                     {type === 'people' ? <p>Know More About : <a href={ApiData['homeworld']}>{ApiData['Home World']}</a></p> : <></>}
+                    Length: {ApiData.length}
                 </>
                 :
-                <p>loading</p>
+                <h1>Loading</h1>
                 }
         </div>
     )
