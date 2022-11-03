@@ -20,7 +20,7 @@ const Word = (props) => {
     return (
         <>
             {isNum?
-                <div style={{backgroundColor:bcolor}}>The word is : {input}</div>
+                <div style={{backgroundColor:bcolor, color:tcolor}}>The word is : {input}</div>
                 :
                 <div style={{backgroundColor:bcolor, color:tcolor}}>The number is : {input}</div>
             }
