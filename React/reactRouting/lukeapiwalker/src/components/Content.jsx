@@ -8,14 +8,14 @@ const API_URL = 'https://swapi.dev/api/'
 
 const Content = (props) => {
     // const { url } = props
-    const [ApiData, setApiData] = useState([]) //
+    const [ApiData, setApiData] = useState({}) //
     const { type, id } = useParams();
     const navigate = useNavigate();
 
     const url = API_URL + type + '/' + id;    //
 
     const SearchApiData = async() =>{
-        setApiData([])
+        setApiData({})
         try {
             const res = await axios.get(url)
             // const keys = (Object.keys(res.data))      //built in methods to return keys
@@ -53,7 +53,7 @@ const Content = (props) => {
         //     :
         //         <h2>Loading</h2>
         //     }
-        //</div>
+        // </div>
         // above is the first attempt, works but the following display only the data that we want to show;
         <div>
             {Object.keys(ApiData).length > 0?

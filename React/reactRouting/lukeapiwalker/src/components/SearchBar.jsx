@@ -22,7 +22,6 @@ const SearchBar = (props) => {
     //     return res;
     // }
 
-
     // const ApiData = async() =>{
     //     const res = await axios(API_URL);     //static information; no need for api fetch
     //     await getList(res);
