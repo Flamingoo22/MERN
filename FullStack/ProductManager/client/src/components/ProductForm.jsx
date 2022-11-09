@@ -36,7 +36,7 @@ const ProductForm = (props) => {
             }) 
                 .then(res => console.log(res))
                 .catch(err=> console.log(err))
-            navigate(`/`)
+            navigate('/')
             }
         setInput({
             title:'',

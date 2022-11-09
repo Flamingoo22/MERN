@@ -7,9 +7,9 @@ const Main = () => {
 
     return (
         <>
-            <ProductForm setProducts={setProducts} products={products}/>
+            <ProductForm setProducts={setProducts} products={products} />
             <hr/>
-            <Products products={products} setProducts={setProducts}/>
+            <Products products={products} setProducts={setProducts} />
         </>
     )
 }
