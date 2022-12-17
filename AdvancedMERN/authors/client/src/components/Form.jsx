@@ -4,18 +4,39 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField'
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack'
+import axios from 'axios';
 const Form = (props) => {
-    const { name, onSubmitProp, errors } = props;
-    const [ authorName, setAuthorName ] = useState('')
+    const { name, method, path } = props;
+    const [ authorName, setAuthorName ] = useState(name)
+    const [errors, setErrors] = useState([]);
+
+    // const onSubmitHandler = (e) =>{
+    //     e.preventDefault();
+    //     onSubmitProp({name:authorName})
+    // }
 
     const onSubmitHandler = (e) =>{
         e.preventDefault();
-        onSubmitProp({name:authorName})
+        axios[method]('http://localhost:8000/api/'+ path, {name: authorName})
+            .then(res=>{
+                nav('/')
+            })
+            .catch(err=> {
+                // console.log(err.response.data.errors.name.message)
+                const errResponse = err.response.data.errors;
+                // console.log(errResponse)
+                const errArray = [];
+                for (const key of Object.keys(errResponse)){
+                    errArray.push(errResponse[key].message)
+                };
+                console.log('error from db:',errArray)
+                setErrors(errArray);
+        })
     }
 
-    useEffect(()=>{
-        setAuthorName(name);
-    },[name, errors])
+    // useEffect(()=>{
+    //     setAuthorName(name);
+    // },[name, errors])
 
     const nav = useNavigate();
 
